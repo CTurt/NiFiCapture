@@ -237,7 +237,12 @@ void hello_loop(helloObjectInstance *me) {
 			DSGM_DrawText(DSGM_BOTTOM, 1, 9, "Could not write packet!");
 		}
 		
+		// Capture just packet content
 		fwrite(DSGM_wirelessData, 1, DSGM_wirelessDataLength, f);
+		
+		// Capture full packet, with frame
+		//fwrite(DSGM_buffer, 1, DSGM_wirelessDataLength + 32, f);
+		
 		fclose(f);
 	}
 	
